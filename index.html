@@ -1,21 +1,2120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KQYC | Empowering Youth</title>
-  <link rel="stylesheet" href="index.css" />
-  <script defer src="index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kings and Queens Youth Centre</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --royal-purple: #4B0082;
+            --deep-purple: #2D0042;
+            --sky-blue: #E8F4F8;
+            --gold: #D4AF37;
+            --light-gold: #F4E8C1;
+            --navy: #1A1A2E;
+            --white: #FFFFFF;
+            --off-white: #FAFAFA;
+            --gray: #F0F0F0;
+            --dark-gray: #333333;
+            --light-gray: #777777;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--off-white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--off-white) 0%, #f0f8ff 100%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Crimson Text', serif;
+            font-weight: 600;
+            color: var(--royal-purple);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        /* Animated Background Elements */
+        .bg-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0) 70%);
+            animation: float 20s infinite linear;
+        }
+
+        .bg-element:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+            background: radial-gradient(circle, rgba(75, 0, 130, 0.08) 0%, rgba(75, 0, 130, 0) 70%);
+        }
+
+        .bg-element:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            animation-delay: -5s;
+            animation-duration: 25s;
+            background: radial-gradient(circle, rgba(232, 244, 248, 0.1) 0%, rgba(232, 244, 248, 0) 70%);
+        }
+
+        .bg-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: -10s;
+            animation-duration: 30s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            33% {
+                transform: translateY(-30px) rotate(120deg);
+                opacity: 0.5;
+            }
+            66% {
+                transform: translateY(20px) rotate(240deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+                opacity: 0.7;
+            }
+        }
+
+        /* Header & Logo */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            gap: 20px;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img-container {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: visible;
+        }
+
+        .logo-img {
+            height: 100%;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 4px 8px rgba(75, 0, 130, 0.2));
+        }
+
+        .logo-container:hover .logo-img {
+            transform: scale(1.1) rotate(2deg);
+            filter: drop-shadow(0 6px 12px rgba(75, 0, 130, 0.3));
+        }
+
+        .logo-text {
+            font-family: 'Crimson Text', serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--royal-purple);
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to right, var(--royal-purple), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav-toggle {
+            background: linear-gradient(135deg, var(--royal-purple), var(--deep-purple));
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(75, 0, 130, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-toggle:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 8px 25px rgba(75, 0, 130, 0.5);
+        }
+
+        .nav-toggle::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: translateX(-100%);
+        }
+
+        .nav-toggle:hover::before {
+            animation: shine 0.6s;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 350px;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.98), rgba(45, 0, 66, 0.98));
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            padding-top: 120px;
+            transition: right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: -10px 0 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-active {
+            right: 0;
+        }
+
+        .nav-link {
+            color: var(--white);
+            font-size: 1.4rem;
+            text-decoration: none;
+            padding: 20px 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--gold);
+            background-color: rgba(255, 255, 255, 0.05);
+            padding-left: 60px;
+            transform: translateX(10px);
+        }
+
+        .nav-link i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+        }
+
+        .nav-link:hover i {
+            transform: scale(1.3) rotate(10deg);
+            color: var(--gold);
+        }
+
+        .nav-link:last-child {
+            border-bottom: none;
+        }
+
+        /* Page Container */
+        .page-container {
+            min-height: 100vh;
+            width: 100%;
+            padding: 140px 40px 80px;
+            display: none;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: pageFadeIn 0.8s forwards;
+        }
+
+        @keyframes pageFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-active {
+            display: block;
+        }
+
+        /* Section Spacing */
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.3s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--royal-purple), var(--gold));
+            border-radius: 2px;
+            animation: expandWidth 1s forwards 0.8s;
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100px;
+            }
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: var(--light-gray);
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards 0.6s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Index Page */
+        #index-page {
+            background: linear-gradient(rgba(75, 0, 130, 0.92), rgba(45, 0, 66, 0.92)), 
+                        url('Picture 1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #index-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            animation: sparkle 20s linear infinite;
+        }
+
+        @keyframes sparkle {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-1000px);
+            }
+        }
+
+        .index-content {
+            max-width: 900px;
+            padding: 80px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.9);
+            animation: scaleIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes scaleIn {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .index-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: slide 3s infinite linear;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .index-title {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+
+        .index-mission {
+            font-size: 1.5rem;
+            line-height: 1.9;
+            margin-bottom: 50px;
+            color: var(--sky-blue);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.7s;
+        }
+
+        .index-verse {
+            font-style: italic;
+            color: var(--gold);
+            font-size: 1.3rem;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+
+        .index-btn {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--gold);
+            padding: 22px 60px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 40px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.9s;
+        }
+
+        .index-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .index-btn:hover::before {
+            left: 100%;
+        }
+
+        .index-btn:hover {
+            background-color: var(--gold);
+            color: var(--royal-purple);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.4);
+            letter-spacing: 2px;
+        }
+
+        /* Home Page */
+        .intro-container {
+            max-width: 1000px;
+            margin: 0 auto 100px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            text-align: center;
+            color: var(--dark-gray);
+            background: linear-gradient(135deg, var(--white), var(--sky-blue));
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--royal-purple);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--royal-purple), var(--gold));
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto 100px;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid var(--royal-purple);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .feature-card:nth-child(1) {
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation: fadeUp 0.8s forwards 0.7s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation: fadeUp 0.8s forwards 0.9s;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--royal-purple), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            display: inline-block;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: var(--royal-purple);
+        }
+
+        .feature-title {
+            font-size: 1.7rem;
+            margin-bottom: 20px;
+            color: var(--deep-purple);
+            position: relative;
+            display: inline-block;
+        }
+
+        .feature-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--royal-purple), var(--gold));
+            border-radius: 2px;
+        }
+
+        .feature-text {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Gallery */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            height: 280px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(0deg);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(50px) perspective(1000px) rotateY(0deg);
+        }
+
+        .gallery-item:nth-child(1) {
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+
+        .gallery-item:nth-child(2) {
+            animation: fadeUp 0.8s forwards 0.7s;
+        }
+
+        .gallery-item:nth-child(3) {
+            animation: fadeUp 0.8s forwards 0.9s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) perspective(1000px) rotateY(5deg);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(75, 0, 130, 0.9));
+            color: white;
+            padding: 30px;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .img-placeholder {
+            background: linear-gradient(135deg, var(--sky-blue), var(--white));
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--royal-purple);
+            font-size: 1.3rem;
+            font-weight: 600;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .placeholder-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .gallery-item:hover .img-placeholder {
+            background: linear-gradient(135deg, var(--royal-purple), var(--deep-purple));
+            color: var(--white);
+        }
+
+        .gallery-item:hover .placeholder-content {
+            background: rgba(75, 0, 130, 0.85);
+            color: var(--white);
+        }
+
+        .img-placeholder i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            transition: all 0.5s ease;
+        }
+
+        .gallery-item:hover .img-placeholder i {
+            transform: scale(1.3) rotate(10deg);
+            color: var(--white);
+        }
+
+        .home-btn-container {
+            text-align: center;
+            margin-top: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 1.1s;
+        }
+
+        .home-btn {
+            background: linear-gradient(to right, var(--royal-purple), var(--deep-purple));
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 10px 30px rgba(75, 0, 130, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .home-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .home-btn:hover::before {
+            left: 100%;
+        }
+
+        .home-btn:hover {
+            background: linear-gradient(to right, var(--deep-purple), var(--royal-purple));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(75, 0, 130, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* About Page */
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin-bottom: 80px;
+        }
+
+        .about-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-left: 8px solid var(--royal-purple);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .about-card:nth-child(1) {
+            animation: slideInRight 0.8s forwards 0.5s;
+        }
+
+        .about-card:nth-child(2) {
+            animation: slideInRight 0.8s forwards 0.7s;
+        }
+
+        .about-card:nth-child(3) {
+            animation: slideInRight 0.8s forwards 0.9s;
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px) translateX(0);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--royal-purple), var(--gold));
+        }
+
+        .about-title {
+            font-size: 2.3rem;
+            margin-bottom: 30px;
+            color: var(--deep-purple);
+            display: flex;
+            align-items: center;
+        }
+
+        .about-title i {
+            margin-right: 20px;
+            color: var(--gold);
+            font-size: 2rem;
+            transition: all 0.5s ease;
+        }
+
+        .about-card:hover .about-title i {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+        }
+
+        .team-section {
+            margin-top: 60px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-top: 5px solid var(--royal-purple);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .team-member:nth-child(1) { animation: fadeUp 0.8s forwards 0.5s; }
+        .team-member:nth-child(2) { animation: fadeUp 0.8s forwards 0.6s; }
+        .team-member:nth-child(3) { animation: fadeUp 0.8s forwards 0.7s; }
+        .team-member:nth-child(4) { animation: fadeUp 0.8s forwards 0.8s; }
+        .team-member:nth-child(5) { animation: fadeUp 0.8s forwards 0.9s; }
+
+        .team-member:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            border-top: 5px solid var(--gold);
+        }
+
+        .member-name {
+            font-weight: 700;
+            color: var(--royal-purple);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .member-name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .member-role {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Additional Photo Sections */
+        .photo-section {
+            margin: 80px 0;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .photo-item {
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .photo-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s ease;
+        }
+
+        .photo-item:hover .photo-img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(75, 0, 130, 0.9));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        /* Volunteer Page */
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            padding: 70px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+            border-top: 8px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUp 0.8s forwards 0.5s;
+        }
+
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, var(--royal-purple), var(--gold));
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            color: var(--royal-purple);
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--royal-purple), var(--gold));
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInRight 0.5s forwards;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.6s; }
+        .form-group:nth-child(2) { animation-delay: 0.7s; }
+        .form-group:nth-child(3) { animation-delay: 0.8s; }
+        .form-group:nth-child(4) { animation-delay: 0.9s; }
+        .form-group:nth-child(5) { animation-delay: 1.0s; }
+        .form-group:nth-child(6) { animation-delay: 1.1s; }
+        .form-group:nth-child(7) { animation-delay: 1.2s; }
+        .form-group:nth-child(8) { animation-delay: 1.3s; }
+
+        .form-label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--deep-purple);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-family: 'Montserrat', sans-serif;
+            background: var(--off-white);
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--royal-purple);
+            box-shadow: 0 0 0 4px rgba(75, 0, 130, 0.1);
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .form-textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, var(--royal-purple), var(--deep-purple));
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 60px auto 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 100%;
+            max-width: 350px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 10px 30px rgba(75, 0, 130, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s forwards 1.5s;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to right, var(--deep-purple), var(--royal-purple));
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(75, 0, 130, 0.5);
+            letter-spacing: 2px;
+        }
+
+        /* Contact Page */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--royal-purple), var(--deep-purple));
+            color: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInRight 0.8s forwards 0.5s;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            animation: sparkle 20s linear infinite;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInLeft 0.8s forwards 0.5s;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--royal-purple), var(--gold));
+        }
+
+        .contact-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--gold);
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .contact-detail {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.4s ease;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-detail:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-detail i {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-right: 25px;
+            margin-top: 5px;
+            min-width: 30px;
+            transition: all 0.4s ease;
+        }
+
+        .contact-detail:hover i {
+            transform: scale(1.3) rotate(10deg);
+        }
+
+        .contact-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .contact-text strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px;
+            margin-top: 100px;
+            background: linear-gradient(to right, var(--deep-purple), var(--royal-purple));
+            color: white;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--royal-purple), var(--gold));
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .page-container {
+                padding: 140px 30px 80px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .index-title {
+                font-size: 3.2rem;
+            }
+            
+            .section-header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-card, .form-container, .contact-info, .contact-form {
+                padding: 50px 40px;
+            }
+            
+            .intro-text {
+                padding: 50px 40px;
+            }
+            
+            .logo-img {
+                max-width: 150px;
+                height: 70px;
+            }
+            
+            .logo-text {
+                font-size: 1.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 25px;
+            }
+            
+            .page-container {
+                padding: 140px 25px 60px;
+            }
+            
+            .logo-img {
+                max-width: 120px;
+                height: 60px;
+            }
+            
+            .logo-text {
+                font-size: 1.7rem;
+            }
+            
+            .index-title {
+                font-size: 2.8rem;
+            }
+            
+            .index-mission {
+                font-size: 1.3rem;
+            }
+            
+            .index-content {
+                padding: 60px 40px;
+            }
+            
+            .section-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-container, .features-container, .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .form-container {
+                padding: 40px 30px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header {
+                padding: 15px 20px;
+            }
+            
+            .page-container {
+                padding: 140px 20px 50px;
+            }
+            
+            .logo-container {
+                gap: 15px;
+            }
+            
+            .logo-img {
+                max-width: 100px;
+                height: 50px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .nav-overlay {
+                width: 100%;
+            }
+            
+            .index-title {
+                font-size: 2.5rem;
+            }
+            
+            .index-mission {
+                font-size: 1.2rem;
+            }
+            
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-card, .contact-info, .contact-form {
+                padding: 40px 30px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <section id="intro-block">
-    <div class="intro-content">
-      <h1>Raising Kings and Queens</h1>
-      <p class="tagline">Empowering youth to rule their futures with purpose and power.</p>
-      <a href="home.html" class="join-button">Join Us</a>
+    <!-- Animated Background Elements -->
+    <div class="bg-elements">
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
+        <div class="bg-element"></div>
     </div>
-  </section>
 
+    <!-- Header with Logo -->
+    <header class="header">
+        <div class="logo-container" id="logoLink">
+            <div class="logo-img-container">
+                <!-- Replace logo.png with your own logo file -->
+                <img src="logo.png" alt="Kings and Queens Youth Centre Logo" class="logo-img" 
+                     onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiB2aWV3Qm94PSIwIDAgMjAwIDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjgwIiByeD0iMTAiIGZpbGw9IiM0QjAwODIiLz4KPHRleHQgeD0iMTAwIiB5PSI0NSIgZm9udC1mYW1pbHk9IkNyaW1zb24gVGV4dCIgZm9udC1zaXplPSIyNCIgZm9udC13ZWlnaHQ9IjcwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0id2hpdGUiPktpbmdzICYgUXVlZW5zPC90ZXh0Pgo8L3N2Zz4K';">
+            </div>
+            <div class="logo-text">Kings & Queens Youth Centre</div>
+        </div>
+
+        <button class="nav-toggle" id="navToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="navOverlay">
+        <div class="nav-link" data-page="home-page">
+            <i class="fas fa-home"></i> Home
+        </div>
+        <div class="nav-link" data-page="about-page">
+            <i class="fas fa-info-circle"></i> About Us
+        </div>
+        <div class="nav-link" data-page="volunteer-page">
+            <i class="fas fa-hands-helping"></i> Volunteer
+        </div>
+        <div class="nav-link" data-page="contact-page">
+            <i class="fas fa-envelope"></i> Contact Us
+        </div>
+    </div>
+
+    <!-- Index Page -->
+    <div id="index-page" class="page-container page-active">
+        <div class="index-content">
+            <h1 class="index-title">Kings and Queens Youth Centre</h1>
+            <p class="index-mission">
+                A non-profit organization dedicated to addressing social challenges affecting youth aged 15 to 35 
+                in Lufhereng and surrounding communities. Our mission is to provide educational support, 
+                including homework assistance and career guidance, while fostering a positive, nurturing environment.
+            </p>
+            <button class="index-btn" id="enterBtn">Join Us</button>
+            <p class="index-verse">"Inspired by Revelations 1:6 - To empower youth to recognize their inherent worth and potential."</p>
+        </div>
+    </div>
+
+    <!-- Home Page -->
+    <div id="home-page" class="page-container">
+        <section class="section">
+            <div class="section-header">
+                <h1>Welcome to Kings & Queens Youth Centre</h1>
+                <p>Providing comprehensive support to youth in Glenridge and neighboring areas</p>
+            </div>
+
+            <div class="intro-container">
+                <div class="intro-text">
+                    <p>We are committed to shaping and nurturing a positive future generation through educational support 
+                    services, homework assistance, and career guidance to help combat social issues in our community.</p>
+                    <p>Our unique hybrid model combines online WhatsApp support with in-person sessions, allowing us to 
+                    reach more youth while maintaining personal connections and community engagement.</p>
+                </div>
+            </div>
+
+            <div class="features-container">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Educational Support</h3>
+                    <p class="feature-text">Homework assistance and career guidance for youth aged 15-35 via WhatsApp and in-person sessions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Mental Health Support</h3>
+                    <p class="feature-text">Addressing depression, loneliness, and emotional challenges through counseling and peer support.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Community Building</h3>
+                    <p class="feature-text">Creating supportive networks and positive environments to combat social isolation and peer pressure.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <h2>Our Gallery</h2>
+                <p>Visual highlights of our programs and community engagement</p>
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <div class="img-placeholder">
+                        <img src="Picture 2.jpg" alt="Academic Tutoring Session" class="placeholder-img">
+                        <div class="placeholder-content">
+                            <i class="fas fa-book"></i>
+                            <span>Academic Tutoring</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>Academic Support</h3>
+                        <p>Providing homework assistance in core subjects</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="img-placeholder">
+                        <img src="Picture 3.jpg" alt="Peer Support Group" class="placeholder-img">
+                        <div class="placeholder-content">
+                            <i class="fas fa-comments"></i>
+                            <span>Peer Support</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>Peer Engagement</h3>
+                        <p>Building connections and support networks</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="img-placeholder">
+                        <img src="Picture 4.jpg" alt="Sports Activities" class="placeholder-img">
+                        <div class="placeholder-content">
+                            <i class="fas fa-futbol"></i>
+                            <span>Sports Activities</span>
+                        </div>
+                    </div>
+                    <div class="gallery-overlay">
+                        <h3>Recreational Activities</h3>
+                        <p>Promoting physical health and teamwork</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="photo-section">
+            <div class="section-header">
+                <h2>More Photos</h2>
+                <p>Additional moments from our programs and events</p>
+            </div>
+
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="Picture 5.jpg" alt="Community Workshop" class="photo-img">
+                    <div class="photo-caption">
+                        <h4>Community Workshop</h4>
+                        <p>Skills development sessions</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="Picture 6.jpg" alt="Youth Gathering" class="photo-img">
+                    <div class="photo-caption">
+                        <h4>Youth Gathering</h4>
+                        <p>Monthly meetups and discussions</p>
+                    </div>
+                </div>
+                
+                <div class="photo-item">
+                    <img src="Picture 7.jpg" alt="Volunteer Team" class="photo-img">
+                    <div class="photo-caption">
+                        <h4>Volunteer Team</h4>
+                        <p>Our dedicated volunteers in action</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="home-btn-container">
+            <button class="home-btn" id="volunteerBtn">Become a Volunteer</button>
+        </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about-page" class="page-container">
+        <section class="section">
+            <div class="section-header">
+                <h1>About Our Organization</h1>
+                <p>Learn about our mission, vision, and the team behind Kings & Queens Youth Centre</p>
+            </div>
+
+            <div class="about-container">
+                <div class="about-section">
+                    <div class="about-card">
+                        <h2 class="about-title"><i class="fas fa-info-circle"></i> Who We Are</h2>
+                        <p class="about-text">
+                            The Kings and Queens Youth Centre is a registered non-profit organization (NPO Registration Number: 284-279 NPO) 
+                            dedicated to addressing social challenges affecting youth aged 15 to 35 in Lufhereng and surrounding communities.
+                        </p>
+                        <p class="about-text">
+                            Our mission is to provide educational support, including homework assistance and career guidance, while fostering 
+                            a positive, nurturing environment to help combat issues such as alcohol and drug abuse, teenage pregnancy, 
+                            poverty, and mental health issues such as depression.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <div class="about-card">
+                        <h2 class="about-title"><i class="fas fa-bullseye"></i> Our Vision & Mission</h2>
+                        <p class="about-text">
+                            <strong>Vision:</strong> To become a leading educational organization that shapes and nurtures a positive future generation.
+                        </p>
+                        <p class="about-text">
+                            <strong>Mission:</strong> To provide educational support services, through homework assistance and career guidance, to help 
+                            combat social issues in Glenridge and neighbouring areas.
+                        </p>
+                        <p class="about-text">
+                            <strong>Objectives:</strong>
+                        </p>
+                        <ul style="margin-left: 20px; margin-bottom: 20px; color: var(--dark-gray);">
+                            <li>Offer homework assistance and career guidance</li>
+                            <li>Create a supportive community for youth</li>
+                            <li>Improve academic performance and social well-being</li>
+                            <li>Promote responsible citizenship</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <div class="about-card">
+                        <h2 class="about-title"><i class="fas fa-chart-line"></i> Market Position & Analysis</h2>
+                        <p class="about-text">
+                            No direct competitors were identified in Glenridge. The Kings and Queens Youth Centre is unique within this region, 
+                            while other NPOs in the area focus primarily on assisting individuals with disabilities.
+                        </p>
+                        <p class="about-text">
+                            Our survey of 177 participants revealed that 34.5% face educational challenges, 11.3% experience loneliness, 
+                            7.3% deal with peer pressure, and 6.8% struggle with suicidal thoughts. These findings drive our comprehensive approach.
+                        </p>
+                        <p class="about-text">
+                            The nearest competitor is the Boys and Girls Club in Protea Glen Extension 12, which offers face-to-face services 
+                            and charges a R150 joining fee. Our services are completely free, differentiating us significantly in the market.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-section">
+                    <div class="section-header">
+                        <h2>Our Leadership Team</h2>
+                        <p>Dedicated professionals committed to youth empowerment</p>
+                    </div>
+
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-name">Matthews Simelane</div>
+                            <div class="member-role">Founder and Chairperson</div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-name">Neo Nkadimeng Vinolia Simelane</div>
+                            <div class="member-role">General Secretary and Business Administrator</div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-name">Kagiso Ramatong</div>
+                            <div class="member-role">Treasurer</div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-name">Palesa Tsoute</div>
+                            <div class="member-role">Marketing and Liaison Officer</div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-name">Deliwe Getrude Simelane</div>
+                            <div class="member-role">Deputy Secretary and Contact Person</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Volunteer Page -->
+    <div id="volunteer-page" class="page-container">
+        <section class="section">
+            <div class="section-header">
+                <h1>Become a Volunteer</h1>
+                <p>Join our team and make a difference in the lives of youth in our community</p>
+            </div>
+
+            <div class="form-container">
+                <h2 class="form-title">Volunteer Application Form</h2>
+                <form id="volunteerForm">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" id="fullName" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="Enter your phone number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age" class="form-label">Age</label>
+                        <input type="number" id="age" class="form-input" min="18" placeholder="Enter your age" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="occupation" class="form-label">Occupation / Profession</label>
+                        <input type="text" id="occupation" class="form-input" placeholder="Enter your current occupation" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills" class="form-label">Areas of Expertise</label>
+                        <select id="skills" class="form-select" required>
+                            <option value="" disabled selected>Select your area of expertise</option>
+                            <option value="tutoring">Tutoring / Academic Support</option>
+                            <option value="counseling">Counseling / Mentoring</option>
+                            <option value="sports">Sports Coaching</option>
+                            <option value="arts">Arts & Culture</option>
+                            <option value="admin">Administration</option>
+                            <option value="fundraising">Fundraising</option>
+                            <option value="marketing">Marketing / Outreach</option>
+                            <option value="tech">Technology Support</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability" class="form-label">Availability</label>
+                        <select id="availability" class="form-select" required>
+                            <option value="" disabled selected>Select your availability</option>
+                            <option value="weekdays">Weekdays Afternoon/Evening</option>
+                            <option value="saturdays">Saturdays</option>
+                            <option value="both">Both Weekdays and Saturdays</option>
+                            <option value="flexible">Flexible / As Needed</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation" class="form-label">Motivation for Volunteering</label>
+                        <textarea id="motivation" class="form-textarea" placeholder="Please explain why you want to volunteer with Kings and Queens Youth Centre and what you hope to contribute..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact-page" class="page-container">
+        <section class="section">
+            <div class="section-header">
+                <h1>Contact Us</h1>
+                <p>Get in touch with Kings & Queens Youth Centre</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2 class="contact-title">Contact Information</h2>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-text">
+                            <strong>Address:</strong><br>
+                            3135 Ullian Ngozi Street, Doornkop, Soweto<br>
+                            Dobsonville Ext 1, 1863
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-text">
+                            <strong>Phone:</strong><br>
+                            +27 63 281 0134 (WhatsApp)
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-text">
+                            <strong>Email:</strong><br>
+                            kqyc@outlook.com
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div class="contact-text">
+                            <strong>Operating Hours:</strong><br>
+                            Monday - Friday: 2 PM - 7 PM (WhatsApp Support)<br>
+                            Saturdays: 9 AM - 1 PM (In-person sessions, twice a month)
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-id-card"></i>
+                        <div class="contact-text">
+                            <strong>NPO Registration:</strong><br>
+                            Registration Number: 284-279 NPO
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2 class="form-title">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName" class="form-label">Your Name</label>
+                            <input type="text" id="contactName" class="form-input" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail" class="form-label">Your Email</label>
+                            <input type="email" id="contactEmail" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject" class="form-label">Subject</label>
+                            <input type="text" id="contactSubject" class="form-input" placeholder="Enter message subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage" class="form-label">Message</label>
+                            <textarea id="contactMessage" class="form-textarea" placeholder="Enter your message here..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">Kings and Queens Youth Centre &copy; 2023. All Rights Reserved.</p>
+        <p class="footer-text">NPO Registration Number: 284-279 NPO</p>
+        <p class="footer-text">WhatsApp: +27 63 281 0134 | Email: kqyc@outlook.com</p>
+        <p class="footer-text">Empowering Youth, Building Futures</p>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const navToggle = document.getElementById('navToggle');
+        const navOverlay = document.getElementById('navOverlay');
+        const logoLink = document.getElementById('logoLink');
+        const enterBtn = document.getElementById('enterBtn');
+        const volunteerBtn = document.getElementById('volunteerBtn');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page-container');
+        const header = document.querySelector('.header');
+        
+        // Variables for scroll handling
+        let lastScrollTop = 0;
+        
+        // Function to show specific page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('page-active');
+            });
+            
+            // Show the requested page
+            document.getElementById(pageId).classList.add('page-active');
+            
+            // Close menu if open
+            navOverlay.classList.remove('nav-active');
+            navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            navToggle.style.transform = 'rotate(0deg)';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Update URL hash for bookmarking
+            window.location.hash = pageId;
+        }
+        
+        // Logo click - goes to index page
+        logoLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPage('index-page');
+        });
+        
+        // Enter button click - goes to home page (now says "Join Us")
+        enterBtn.addEventListener('click', function() {
+            showPage('home-page');
+        });
+        
+        // Volunteer button click - goes to volunteer page
+        volunteerBtn.addEventListener('click', function() {
+            showPage('volunteer-page');
+        });
+        
+        // Navigation link clicks
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
+        });
+        
+        // Toggle navigation
+        navToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navOverlay.classList.toggle('nav-active');
+            
+            if (navOverlay.classList.contains('nav-active')) {
+                navToggle.innerHTML = '<i class="fas fa-times"></i>';
+                navToggle.style.transform = 'rotate(90deg)';
+            } else {
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                navToggle.style.transform = 'rotate(0deg)';
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navOverlay.contains(e.target) && !navToggle.contains(e.target)) {
+                navOverlay.classList.remove('nav-active');
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                navToggle.style.transform = 'rotate(0deg)';
+            }
+        });
+        
+        // Handle scroll for header animation
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down
+                header.classList.add('header-hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('header-hidden');
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Check URL hash on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                showPage(hash);
+            } else {
+                showPage('index-page');
+            }
+            
+            // Add animation to form elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all animated elements
+            document.querySelectorAll('.feature-card, .gallery-item, .about-card, .team-member, .photo-item').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Handle image loading errors
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                    console.log('Image failed to load:', this.src);
+                });
+            });
+        });
+        
+        // Handle volunteer form submission
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+            
+            // Simulate processing delay
+            setTimeout(() => {
+                alert('Thank you for your volunteer application. We will review your submission and contact you within 5-7 business days.');
+                this.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // Handle contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate sending delay
+            setTimeout(() => {
+                alert('Thank you for your message. We will respond to your inquiry within 48 hours.');
+                this.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+        
+        // Set current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const year = new Date().getFullYear();
+            const footerTexts = document.querySelectorAll('.footer-text');
+            footerTexts.forEach(text => {
+                if (text.innerHTML.includes('2023')) {
+                    text.innerHTML = text.innerHTML.replace('2023', year);
+                }
+            });
+            
+            // Add hover effect to all interactive elements
+            const interactiveElements = document.querySelectorAll('.feature-card, .team-member, .gallery-item, .nav-link, .index-btn, .home-btn, .submit-btn, .photo-item');
+            
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
