@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kingsandqueens-youthcentre.github.io/kqyc-portal/sitemap.xml
